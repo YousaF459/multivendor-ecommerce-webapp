@@ -1,0 +1,33 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+/* Reset and base styles 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+:root {
+  --primary-color: #007bff;
+  --selector-color: #a9cff8;
+  --secondary-color: #6c757d;
+  --white-color: #f8f9fa;
+  --black-color: #212529;
+
+  --font-family: "Inter", sans-serif;
+
+
+  --font-xs: 1.2rem;
+  --font-sm: 1.4rem;
+  --font-md: 1.6rem;
+  --font-lg: 2rem;
+  --font-xl: 2.8rem;
+}
+*/

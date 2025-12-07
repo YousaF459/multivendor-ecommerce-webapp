@@ -1,0 +1,10 @@
+.dropdown-menu.bg-dark .dropdown-item {
+  color: white;              /* Normal text color */
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-menu.bg-dark .dropdown-item:hover,
+.dropdown-menu.bg-dark .dropdown-item:focus {
+  background-color: #0d6efd; /* Bootstrap primary blue */
+  color: white;              /* Text stays white */
+}

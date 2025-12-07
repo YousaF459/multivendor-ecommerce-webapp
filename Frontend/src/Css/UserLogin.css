@@ -1,0 +1,55 @@
+.containerFuildDesign {
+  background: linear-gradient(to right,#007bff, #00c6ff);
+}
+
+.container {
+ background-color: transparent !important; 
+   box-shadow: none !important;
+  border: none !important;
+  outline: none !important;
+ 
+}
+
+.formHolder{
+    background-color: var(--white-color);
+    border-radius: 12px;
+}
+
+.formHolder {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.formHolder:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.formHolder input {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.formHolder input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  outline: none;
+}
+
+button {
+  border-radius: 8px !important;
+}
+
+h2 {
+  letter-spacing: 1px;
+}
+
+.instruct {
+  font-size: 0.95rem;
+  color: #6c757d;
+}
