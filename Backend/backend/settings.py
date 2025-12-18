@@ -282,16 +282,22 @@ REST_FRAMEWORK = {
 }
 
 
-
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # e.g., smtp.mailtrap.io, smtp.sendgrid.net, smtp.gmail.com
-EMAIL_PORT = 587  # or 465 if using SSL
-EMAIL_HOST_USER =env("DEFAULT_FROM_EMAIL")
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env("DEFAULT_FROM_EMAIL")  # your Gmail
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-EMAIL_USE_TLS = True  # Set to True for port 587
-EMAIL_USE_SSL = False 
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL") 
 
-DEFAULT_FROM_EMAIL =env("DEFAULT_FROM_EMAIL")
+
+
+
+
+
+
+
 
 
 #CORS_ALLOW_ALL_ORIGINS = True
