@@ -6,7 +6,7 @@ from django.utils.text import slugify
 
 class Vendor(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    image=models.FileField(upload_to="vendor",blank=True,null=True,default="vendor.png")
+    image=models.FileField(upload_to="vendor",default="vendor/vendor.png",blank=True,null=True)
     name=models.CharField(max_length=100,help_text="Shop Name",blank=True,null=True)
     description=models.TextField(blank=True,null=True)
     mobile=models.CharField(max_length=100,help_text="Shop Mobile Number",blank=True,null=True)

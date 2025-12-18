@@ -68,7 +68,7 @@ class UserEmailVerification(models.Model):
 ###User Profile Model
 class Profile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
-    image=models.FileField(upload_to="profile",default="profile.png",null=True,blank=True)
+    image=models.FileField(upload_to="profile",default="profile/profile.png",null=True,blank=True)
     full_name=models.CharField(max_length=100,null=True,blank=True)
     about=models.TextField(null=True,blank=True)
     gender=models.CharField(max_length=100,null=True,blank=True)

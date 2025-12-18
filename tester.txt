@@ -1,0 +1,9 @@
+user
+yk05701@gmail.com
+yousaf123
+
+
+superuser
+ ykkhan@gmail.com
+khan
+yousaf123

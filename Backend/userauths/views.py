@@ -23,7 +23,7 @@ from userauths.throttlerates import OTPResendThrottle,LoginAttemptThrottle,Passw
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.serializers import TokenRefreshSerializer
-from backend.deployment_settings import DEFAULT_FROM_EMAIL
+from backend.settings import DEFAULT_FROM_EMAIL
 from rest_framework import status
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from vendor.models import Vendor

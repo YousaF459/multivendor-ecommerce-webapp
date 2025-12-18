@@ -12,7 +12,7 @@ from django.utils.text import slugify
 
 class Category(models.Model):
     title=models.CharField(max_length=100)
-    image=models.FileField(upload_to="category",default="category.png",null=True,blank=True)
+    image=models.FileField(upload_to="category",default="category/category.png",null=True,blank=True)
     active=models.BooleanField(default=True)
     slug=models.SlugField(unique=True)
 
@@ -35,7 +35,7 @@ class Product(models.Model):
         )
 
     title=models.CharField(max_length=100)
-    image=models.FileField(upload_to="products",default="product.png",null=True,blank=True)
+    image=models.FileField(upload_to="products",default="products/product.png",null=True,blank=True)
     description=models.TextField(null=True,blank=True)
     category=models.ForeignKey(Category,on_delete=models.SET_NULL,null=True,blank=True)
     price=models.DecimalField(decimal_places=2,max_digits=12,default=0.00)
@@ -100,7 +100,7 @@ class Product(models.Model):
 
 class Gallery(models.Model):
     product=models.ForeignKey(Product,on_delete=models.SET_NULL,null=True)
-    image=models.FileField(upload_to="products",default="product.jpg",null=True,blank=True)
+    image=models.FileField(upload_to="products",default="products/product.png",null=True,blank=True)
     active=models.BooleanField(default=True)
     gid=ShortUUIDField(unique=True,length=10,alphabet='abcdefghijk')
 

@@ -15,6 +15,8 @@ from datetime import timedelta
 import os
 from decouple import config
 from environs import Env
+from storages.backends.s3boto3 import S3Boto3Storage
+
 
 env=Env()
 env.read_env()
@@ -56,6 +58,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     "corsheaders",
     'anymail',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -134,11 +137,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
 
 
 AUTH_USER_MODEL='userauths.User'
@@ -151,6 +150,42 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STRIPE_PUBLIC_KEY=env("STRIPE_PUBLIC_KEY")
 STRIPE_SECRET_KEY=env("STRIPE_SECRET_KEY")
+
+
+
+
+
+STATICFILES_DIRS=[BASE_DIR / 'staticfiles']
+#STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+
+
+STORAGES = {
+    "default": {
+        "BACKEND": "backend.storages.MediaStorage",  # your custom media storage class
+    },
+    "staticfiles": {
+        "BACKEND": "backend.storages.StaticStorage",  # your custom static storage class
+    },
+}
+
+#AWS CONFIGS 
+AWS_ACCESS_KEY_ID=env("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY=env("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME=env("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME")
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = "public-read"
+AWS_OBJECT_PARAMETERS = {"CacheControl": "max-age=86400"}
+AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/media/"
+STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/static/"
+
+
+
+
+
+
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=2),
@@ -251,12 +286,12 @@ REST_FRAMEWORK = {
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # e.g., smtp.mailtrap.io, smtp.sendgrid.net, smtp.gmail.com
 EMAIL_PORT = 587  # or 465 if using SSL
-EMAIL_HOST_USER = 'yk05701@gmail.com'
+EMAIL_HOST_USER =env("DEFAULT_FROM_EMAIL")
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True  # Set to True for port 587
 EMAIL_USE_SSL = False 
 
-DEFAULT_FROM_EMAIL = 'yk05701@gmail.com'
+DEFAULT_FROM_EMAIL =env("DEFAULT_FROM_EMAIL")
 
 
 #CORS_ALLOW_ALL_ORIGINS = True
@@ -265,11 +300,12 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
 ]
 
-CORS_ALLOW_CREDENTIALS = True
-
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
 ]
+
+
+CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_HEADERS = [
     'accept',
