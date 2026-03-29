@@ -7,9 +7,9 @@ Frontend/build/
 Backend/__pycache__/
 Backend/*.pyc
 Backend/.env
-Backend/db.sqlite3  # If you have a local DB file
-Backend/media/      # Optional: if you don’t want to upload uploaded files
-Backend/staticfiles/ # Optional: generated static files
+Backend/db.sqlite3
+Backend/media/        # ignore uploaded media
+Backend/staticfiles/  # ignore generated static files
 
 # General
 .DS_Store
