@@ -96,16 +96,10 @@ class RegisterView(generics.CreateAPIView):
         slug=f"{slugify(user.username)}-{user.id}"
         )
 
-        verification = UserEmailVerification.objects.create(user=user)
 
-        # Send OTP email
-        send_mail(
-            subject="Verify your email",
-            message=f"Your OTP is {verification.otp}. It will expire in 5 minutes.",
-            from_email=DEFAULT_FROM_EMAIL,
-            recipient_list=[user.email],
-            fail_silently=False,
-        )
+
+        
+       
         return Response({"success":True,'message':"User Registered Successfully"},status=status.HTTP_201_CREATED)
 
 

@@ -2,9 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie'; 
 import { BASE_URL } from '../Utils/constant';
 
-// const myBaseUrl='http://127.0.0.1:8000/api/';
-const isDevelopment= import.meta.env.MODE === 'development'
-const myBaseUrl = isDevelopment ? import.meta.env.VITE_API_BASE_URL_LOCAL : import.meta.env.VITE_API_BASE_URL_DEPLOY
+
 
 const axiosAPI=axios.create({
   baseURL: BASE_URL,

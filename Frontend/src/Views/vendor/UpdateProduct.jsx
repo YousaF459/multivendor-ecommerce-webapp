@@ -221,8 +221,7 @@ function UpdateProduct(){
 <div class="alert alert-warning mt-3" role="alert">
   <h5 class="mb-1">Gallery Image Types Warning</h5>
   <p class="mb-0">
-    Gallery image types may cause issues. If the product update does not work,
-    please remove the images from the gallery and try again.
+    Sizes May Cause Issue On Product Updation So Remove all size and Update Then It Will Work
   </p>
 </div>
               {/* PRODUCT DETAILS */}

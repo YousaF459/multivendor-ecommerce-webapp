@@ -30,7 +30,7 @@ function RegisterUser() {
   .unwrap()
   .then(() => {
     // navigate to email verification page only after successful registration
-    navigate("/verify");
+    navigate("/login");
   })
   .catch((err) => {
     
@@ -165,7 +165,7 @@ function RegisterUser() {
 
                 {loading && (
                   <p className="text-center text-muted">
-                    Loading... Check your Gmail & spam folder
+                    Loading... 
                   </p>
                 )}
                 {success && (

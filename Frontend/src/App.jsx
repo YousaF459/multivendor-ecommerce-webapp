@@ -52,20 +52,20 @@ function App() {
 
 
   
-      <Route path="/Home" element={<HomeComponent />} />
+      {/*<Route path="/Home" element={<HomeComponent />} />*/}
       <Route path="/register" element={<RegisterUser />} />
       
       <Route path="/login" element={<UserLogin />} />
      
-      <Route path="/reset-password" element={<PasswordResetEmail />} />
+      {/*<Route path="/reset-password" element={<PasswordResetEmail />} />*/}
       
-      <Route
+      {/*<Route
           path="/reset-password/confirm/:uidb64/:token"
           element={<PasswordResetConfirm />}
-        />
+        />*/}
 
       <Route path="/profile" element={<UserProfileView />} />
-      <Route path="/verify" element={<VerifyEmail />} />
+      {/*<Route path="/verify" element={<VerifyEmail />} />*/}
 
       <Route path="/" element={<Products/>}/>
       <Route path="/detail/:slug/" element={<ProductDetails/>}/>
@@ -74,7 +74,7 @@ function App() {
 
       <Route path="/checkout/:order_oid/" element={<Checkout/>}/>
 
-      <Route path="/payment-success/:order_oid/" element={<PaymentSuccess/>}/>
+      <Route path="/payment-success/:order_oid" element={<PaymentSuccess/>}/>
 
       <Route path="/search" element={<Search/>}/>
 

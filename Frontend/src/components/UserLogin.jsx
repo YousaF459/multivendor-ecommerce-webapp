@@ -102,9 +102,7 @@ const { loggedIn, setLoggedIn } = useAuth();
             </div>
 
             <div className="text-end mb-3">
-              <NavLink to="/reset-password" className="text-decoration-none small text-primary">
-                Forgot Password?
-              </NavLink>
+              
             </div>
 
            {loading && <p className="text-center text-muted">Loading...</p>}
@@ -126,11 +124,7 @@ const { loggedIn, setLoggedIn } = useAuth();
               
 
 
-              <Link to="/verify">
-                <button type="button" className="btn btn-outline-primary py-2 fw-semibold">
-                  Verify Email
-                </button>
-              </Link>
+              
             </div>
 
 

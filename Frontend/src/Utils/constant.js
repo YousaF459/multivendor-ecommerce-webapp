@@ -1,3 +1,3 @@
-export const BASE_URL="http://127.0.0.1:8000/api/" 
-export const SERVER_URL="http://127.0.0.1:8000/" 
+export const BASE_URL="https://multivendor-ecommerce-api-real.up.railway.app/api/" 
+export const SERVER_URL="https://multivendor-ecommerce-api-real.up.railway.app/" 
 export const PAYPAL_CLIENT_ID='<client-id>'

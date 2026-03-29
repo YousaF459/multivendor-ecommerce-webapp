@@ -409,8 +409,8 @@ class StripeCheckoutAPIView(generics.CreateAPIView):
                 }
             ],
             mode='payment',
-            success_url="http://localhost:5173/payment-success/"+ order.oid + '?session_id={CHECKOUT_SESSION_ID}',
-            cancel_url="http://localhost:5173/payment-success/?session_id={CHECKOUT_SESSION_ID}"
+            success_url="https://advance-multivendor-webapp.netlify.app/payment-success/"+ order.oid + '?session_id={CHECKOUT_SESSION_ID}',
+            cancel_url="https://advance-multivendor-webapp.netlify.app/payment-success?session_id={CHECKOUT_SESSION_ID}"
             )
 
             order.stripe_session_id=checkout_session.id

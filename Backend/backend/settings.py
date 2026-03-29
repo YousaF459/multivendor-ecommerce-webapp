@@ -16,7 +16,7 @@ import os
 from decouple import config
 from environs import Env
 from storages.backends.s3boto3 import S3Boto3Storage
-
+import dj_database_url
 
 env=Env()
 env.read_env()
@@ -35,7 +35,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "yourdomain.com"]
+ALLOWED_HOSTS = ["multivendor-ecommerce-api-real.up.railway.app","127.0.0.1"]
 
 
 # Application definition
@@ -95,12 +95,67 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+       'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+           'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+
+
+db_from_env=dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
+
+
+
+
+# Database configuration
+DATABASE_URL = env("DATABASE_URL", default=None)  # Explicitly get the URL
+
+if DATABASE_URL and 'railway.internal' not in DATABASE_URL:
+    # Use the external PostgreSQL database
+    
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=DATABASE_URL,
+            conn_max_age=600
+        )
+    }
+else:
+    # Fallback to SQLite for local development
+   
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Password validation
@@ -281,14 +336,15 @@ REST_FRAMEWORK = {
     
 }
 
-
+#EMAIL_BACKEND="sendgrid_backend.SendgridBackend"
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = env("DEFAULT_FROM_EMAIL")  # your Gmail
-EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD")
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
+EMAIL_HOST ='live.smtp.mailtrap.io'
+SENDGRID_API_KEY=env("SENDGRID_API_KEY")
+EMAIL_PORT =587
+EMAIL_HOST_USER ="api"  # your Gmail
+EMAIL_USE_TLS =True
+EMAIL_USE_SSL =False
+EMAIL_HOST_PASSWORD =env("EMAIL_HOST_PASSWORD")
 DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL") 
 
 
@@ -303,11 +359,12 @@ DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL")
 #CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
+    "https://advance-multivendor-webapp.netlify.app",
 ]
 
+
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:5173",
+    "https://multivendor-ecommerce-api-real.up.railway.app","https://127.0.0.1","https://advance-multivendor-webapp.netlify.app"
 ]
 
 
