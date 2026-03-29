@@ -8,7 +8,8 @@ Backend/__pycache__/
 Backend/*.pyc
 Backend/.env
 Backend/db.sqlite3
-Backend/media/        # ignore uploaded media
+Backend/media/  
+Backend/products/        # ignore uploaded media
 Backend/staticfiles/  # ignore generated static files
 
 # General
