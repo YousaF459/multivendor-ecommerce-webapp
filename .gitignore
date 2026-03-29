@@ -1,15 +1,15 @@
 # Node / React frontend
-frontend/node_modules/
-frontend/.env
-frontend/build/
+Frontend/node_modules/
+Frontend/.env
+Frontend/build/
 
 # Python / Django backend
-backend/__pycache__/
-backend/*.pyc
-backend/.env
-backend/db.sqlite3  # If you have a local DB file
-backend/media/      # Optional: if you don’t want to upload uploaded files
-backend/staticfiles/ # Optional: generated static files
+Backend/__pycache__/
+Backend/*.pyc
+Backend/.env
+Backend/db.sqlite3  # If you have a local DB file
+Backend/media/      # Optional: if you don’t want to upload uploaded files
+Backend/staticfiles/ # Optional: generated static files
 
 # General
 .DS_Store
